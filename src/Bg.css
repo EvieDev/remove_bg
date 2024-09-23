@@ -1,7 +1,7 @@
 .bg_main {
   background-color: #222a34;
   width: 600px;
-  height: 500px;
+  height: 473px;
   margin: 0 auto;
   margin-top: 100px;
   border-radius: 10px;
@@ -37,4 +37,132 @@
   background-image: url("./assets/Upload.png");
   background-repeat: no-repeat;
   background-position: 10px;
+}
+
+.small_text {
+  color: white;
+  position: absolute;
+  top: 40px;
+  left: 152px;
+  font-size: 9px;
+  direction: rtl;
+}
+
+.middle_screen {
+  width: 100%;
+  height: 67%;
+  position: absolute;
+  top: 67px;
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+}
+
+.left_side,
+.right_side {
+  background-color: #2f3a4b;
+  height: 95%;
+  border-radius: 4px;
+  padding-top: 55px;
+}
+
+.left_side {
+  width: 80%;
+  margin-left: 5px;
+  position: relative;
+}
+
+.right_side {
+  width: 20%;
+  margin-right: 5px;
+}
+
+.left_side_in,
+.right_side_in {
+  background-color: #161b21;
+  height: 83%;
+}
+
+.eula_text {
+  position: absolute;
+  color: #ffffffc2;
+  font-size: 9px;
+  left: 211px;
+  bottom: 19px;
+}
+
+.btn_eula {
+  background-color: #475366;
+  color: white;
+  border: 0;
+  font-size: 11px;
+  padding: 8px;
+  border-radius: 20px;
+  padding-left: 35px;
+  padding-right: 10px;
+  margin-left: 9px;
+  margin-top: 10px;
+  background-image: url("./assets/eula.png");
+  background-repeat: no-repeat;
+  background-position: 10px;
+}
+
+.footer {
+  width: 100%;
+  display: flex;
+  position: absolute;
+  bottom: -5px;
+  display: flex;
+  justify-content: center;
+  gap: 11px;
+}
+
+.logo {
+  padding: 10px;
+  width: 127px;
+  height: 30px;
+  margin-left: 6px;
+  margin-top: 5px;
+}
+
+.banner {
+  padding: 10px;
+  width: 426px;
+  height: 39px;
+}
+
+.tabs {
+  position: absolute;
+  color: white;
+  top: 0;
+  right: 0;
+  display: flex;
+  flex-direction: row-reverse;
+  margin-top: 15px;
+}
+
+.tab_no_bg,
+.tab_with_bg {
+  font-size: 20px;
+  font-family: "aduma";
+  width: 118px;
+  text-align: center;
+}
+
+.tab_no_bg {
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA0AAAANCAYAAABy6+R8AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAB+SURBVHgBrZDRDcAgCEQdoSM4giMwihu0G9QR3KQjWkyguVBq+KjJhYg8OEnprzPGKBKzRMJ8BIwBAJJpEAZ9QL3bYlZn1RVYDHBoQwQ/LcwJ5p1Y58sRgnMKrp11Sb6uJpGAJMAGDXcPJCho9i+PdQfIAFa4N2/T7hGwK3ADfsHQbfttVAYAAAAASUVORK5CYII=);
+  background-repeat: no-repeat;
+  background-position: 90px 7px;
+  padding-bottom: 12px;
+}
+
+.tab_with_bg {
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAYAAABWdVznAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAACrSURBVHgBlU/BEcIwDHN6+ZMRsgErdIRuAJvQDcoIZYOyQUeADcoGZYIgFeUuD+5IdefIcWTLMdsJl1IawM9K/dHjeDvnxho1hvdNhWhAXPO9KR66H+IAWovcvC4X+/4ngmes+GAdvKJ2Y5PyzeGEeKHQgxdE5K6IlgNQXyjOrnS450+DJznSgW4dpwKT9AefdyzBqXKbtWarp+jtD9Q8ynlrCEjOVodge/EB0GdUSPBV9r0AAAAASUVORK5CYII=);
+  background-repeat: no-repeat;
+  background-position: 81px 8px;
+  padding-bottom: 12px;
+}
+
+.selected_tab {
+  border-bottom: 4px solid #a51c9a;
 }
