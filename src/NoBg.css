@@ -1,0 +1,46 @@
+.warning_cont {
+  color: #61dafba3;
+  font-size: 8px;
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 5px;
+  padding-top: 12px;
+  margin-right: 16px;
+}
+
+.warning_icon {
+  width: 9px;
+  height: 10px;
+  margin-top: 1px;
+}
+
+.btn_color {
+  background-color: transparent;
+  border: 2px solid #e9faff91;
+  color: #e9faff91;
+  border-radius: 11px;
+  width: 79px;
+  text-align: right;
+  padding-right: 8px;
+  font-size: 9px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  position: absolute;
+  top: 66px;
+  left: 10px;
+  cursor: pointer;
+}
+
+.color_palate {
+  opacity: 0;
+  position: relative;
+  top: -15px;
+  left: 9px;
+}
+
+.main_image {
+  position: relative;
+  width: 419px;
+  left: 4px;
+  top: -13px;
+}

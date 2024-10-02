@@ -73,7 +73,7 @@
 }
 
 .right_side {
-  width: 20%;
+  width: 30%;
   margin-right: 5px;
 }
 
@@ -105,6 +105,7 @@
   background-image: url("./assets/eula.png");
   background-repeat: no-repeat;
   background-position: 10px;
+  cursor: pointer;
 }
 
 .footer {
@@ -147,6 +148,7 @@
   font-family: "aduma";
   width: 118px;
   text-align: center;
+  cursor: pointer;
 }
 
 .tab_no_bg {
@@ -165,4 +167,89 @@
 
 .selected_tab {
   border-bottom: 4px solid #a51c9a;
+}
+
+.eula_text_popup {
+  position: absolute;
+  background-color: white;
+  color: black;
+  height: 200px;
+  width: 308px;
+  text-align: center;
+  margin: 0 auto;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  padding: 40px;
+  border-radius: 10px;
+}
+
+.download_text_popup {
+  position: absolute;
+  background-color: white;
+  color: black;
+  height: 133px;
+  width: 308px;
+  text-align: center;
+  margin: 0 auto;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  padding: 40px;
+  border-radius: 3px;
+}
+
+.layout {
+  background-color: #161b21c2;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.close_img {
+  position: absolute;
+  top: 10px;
+  left: 8px;
+  cursor: pointer;
+}
+
+.download_folder {
+  width: 40px;
+  padding: 5px;
+  position: relative;
+  top: -64px;
+  left: 128px;
+  background-color: white;
+  border-radius: 3px;
+  box-shadow: 1px 1px 5px #80008026;
+}
+
+.download_approve_text {
+  position: absolute;
+  font-family: "Aduma";
+  font-size: 29px;
+  top: 37px;
+  left: 109px;
+  color: #030380de;
+}
+
+.download_question {
+  position: absolute;
+  font-size: 14px;
+  top: 85px;
+  left: 112px;
+  color: #030380de;
+  direction: rtl;
+}
+
+.not_robot_cont {
+  width: 124px;
+  display: flex;
+  flex-direction: row-reverse;
+  position: absolute;
+  top: 126px;
+  left: 174px;
+  font-size: 9px;
+  color: #030380de;
 }
