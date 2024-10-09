@@ -30,7 +30,21 @@ function Bg() {
     }
   }
 
-  function uploadPicture() {}
+  function uploadPicture() {
+    let formData = new FormData();
+
+    formData.append("Firstname", "Harry");
+    formData.append("Lastname", "Potter");
+
+    axios
+      .post("http://localhost:3001/get_img", formData)
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }
 
   return (
     <>
