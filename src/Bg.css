@@ -253,3 +253,48 @@
   font-size: 9px;
   color: #030380de;
 }
+
+.not_robot_img {
+  width: 11px;
+  height: 11px;
+  margin-right: 13px;
+  margin-top: 1px;
+}
+
+.cancel_download_btn,
+.approve_download_btn {
+  border-radius: 22px;
+  font-family: "aduma";
+  height: 24px;
+}
+
+.cancel_download_btn {
+  color: #030380de;
+  width: 85px;
+  border: 1px solid #030380de;
+  background: transparent;
+  cursor: pointer;
+}
+
+.approve_download_btn {
+  width: 100px;
+  color: white;
+  border: 0;
+  background: linear-gradient(45deg, #a51c9a, #61dafb);
+  cursor: pointer;
+}
+
+.download_btn_cont {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  flex-direction: row-reverse;
+  gap: 14px;
+  bottom: -68px;
+}
+
+.noRobotErr {
+  color: red;
+  margin-top: 76px;
+  font-size: 9px;
+}

@@ -7,22 +7,39 @@ import { useState } from "react";
 import close1 from "./assets/close1.png";
 import NoBg from "./NoBg";
 import DownloadFolder from "./assets/Downloads Folder.png";
+import notRobotImg from "./assets/not_robot.png";
+import axios from "axios";
 
 function Bg() {
   const [selectedTab, setSelectedTab] = useState(1);
   const [eulaPopup, setEulaPopup] = useState(false);
   const [downloadPopup, setDownloadPopup] = useState(false);
+  const [notRobot, setNotRobot] = useState(false);
+  const [errMessage, setErrMessage] = useState("");
 
   function OpenDownloadPopup() {
     setDownloadPopup(true);
   }
+
+  function startDownload() {
+    if (notRobot) {
+      //start dounload
+      setErrMessage("");
+    } else {
+      setErrMessage("יש לסמן אני לא רובוט");
+    }
+  }
+
+  function uploadPicture() {}
 
   return (
     <>
       <div className="bg_main">
         <img src={close} className="close_icon" />
         <div className="header_title">העלאת תמונה כדי להסיר את הרקע</div>
-        <button className="btn_upload">העלאת תמונה</button>
+        <button className="btn_upload" onClick={() => uploadPicture()}>
+          העלאת תמונה
+        </button>
         <div className="small_text">פורמטים נתמכים: .png, .jpg</div>
 
         <div className="middle_screen">
@@ -115,9 +132,24 @@ function Bg() {
             <div className="download_question">האם להוריד את התמונה?</div>
 
             <div className="not_robot_cont">
-              <input type="checkbox" />
+              <input
+                type="checkbox"
+                onClick={() => {
+                  setNotRobot(!notRobot);
+                }}
+              />
               <div className="not_robot_text">אני לא רובוט</div>
+              <img src={notRobotImg} className="not_robot_img" />
             </div>
+
+            <div className="download_btn_cont">
+              <button className="cancel_download_btn">ביטול</button>
+              <button className="approve_download_btn" onClick={startDownload}>
+                אישור
+              </button>
+            </div>
+
+            {errMessage ? <div className="noRobotErr">{errMessage}</div> : ""}
           </div>
         </div>
       ) : (
