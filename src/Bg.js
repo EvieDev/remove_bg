@@ -3,7 +3,7 @@ import close from "./assets/close.png";
 import logo from "./assets/logo.png";
 import banner from "./assets/banner.png";
 import Download from "./Download";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import close1 from "./assets/close1.png";
 import NoBg from "./NoBg";
 import DownloadFolder from "./assets/Downloads Folder.png";
@@ -16,6 +16,7 @@ function Bg() {
   const [downloadPopup, setDownloadPopup] = useState(false);
   const [notRobot, setNotRobot] = useState(false);
   const [errMessage, setErrMessage] = useState("");
+  const [uploadErrMsg, setUploadErrMsg] = useState("");
 
   function OpenDownloadPopup() {
     setDownloadPopup(true);
@@ -30,20 +31,35 @@ function Bg() {
     }
   }
 
-  function uploadPicture() {
-    let formData = new FormData();
+  const inputElement = useRef();
 
-    formData.append("Firstname", "Harry");
-    formData.append("Lastname", "Potter");
+  const clickInput = () => {
+    inputElement.current.click();
+  };
 
-    axios
-      .post("http://localhost:3001/get_img", formData)
-      .then(function (response) {
-        console.log(response);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
+  function upload_file(fileUpload) {
+    if (
+      fileUpload.type.toLowerCase() == "image/png" ||
+      fileUpload.type.toLowerCase() == "image/jpg" ||
+      fileUpload.type.toLowerCase() == "image/jpeg"
+    ) {
+      let formData = new FormData();
+
+      formData.append("file", fileUpload);
+
+      axios
+        .post("http://localhost:3001/get_img", formData)
+        .then(function (response) {
+          console.log(response);
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+
+      setUploadErrMsg("");
+    } else {
+      setUploadErrMsg("הקובץ לא נתמך");
+    }
   }
 
   return (
@@ -51,10 +67,22 @@ function Bg() {
       <div className="bg_main">
         <img src={close} className="close_icon" />
         <div className="header_title">העלאת תמונה כדי להסיר את הרקע</div>
-        <button className="btn_upload" onClick={() => uploadPicture()}>
+        <button className="btn_upload" onClick={clickInput}>
           העלאת תמונה
         </button>
+        <input
+          type="file"
+          ref={inputElement}
+          className="input_upload"
+          onChange={(e) => upload_file(e.target.files[0])}
+        />
         <div className="small_text">פורמטים נתמכים: .png, .jpg</div>
+
+        {uploadErrMsg ? (
+          <div className="upload_err_msg">{uploadErrMsg}</div>
+        ) : (
+          ""
+        )}
 
         <div className="middle_screen">
           <div className="left_side">

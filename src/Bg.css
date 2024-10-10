@@ -298,3 +298,16 @@
   margin-top: 76px;
   font-size: 9px;
 }
+
+.input_upload {
+  display: none;
+}
+
+.upload_err_msg {
+  color: red;
+  z-index: 55555;
+  position: absolute;
+  left: 177px;
+  top: 52px;
+  font-size: 8px;
+}
