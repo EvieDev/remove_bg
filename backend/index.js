@@ -9,10 +9,12 @@ app.use(fileUpload());
 
 app.use(cors());
 
-app.post("/get_img", async function (req, res) {
-  //   console.log(req.files);
+app.use(express.static("/noBgImage"));
+app.use(express.static("/uploadImage"));
 
-  let fileName = req.files.file.name;
+app.post("/get_img", async function (req, res) {
+  let date = new Date().getTime();
+  let fileName = date + "_" + req.files.file.name;
   filePath = __dirname + "/uploadImage/" + fileName;
 
   req.files.file.mv(filePath, async function (err) {
@@ -27,13 +29,13 @@ app.post("/get_img", async function (req, res) {
       console.log(fileBlob);
       const rbgResultData = await removeBg(fileBlob);
       fs.writeFileSync(
-        __dirname + "/noBgImage/" + fileName,
+        __dirname + "/noBgImage/" + "no_bg_" + fileName,
         Buffer.from(rbgResultData)
       );
     }
   });
 
-  res.send("200");
+  res.send(fileName);
 });
 
 async function removeBg(blob) {
