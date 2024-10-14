@@ -17,9 +17,12 @@ function Bg() {
   const [notRobot, setNotRobot] = useState(false);
   const [errMessage, setErrMessage] = useState("");
   const [uploadErrMsg, setUploadErrMsg] = useState("");
+  const [imageName, setImageName] = useState("");
 
-  function OpenDownloadPopup() {
+  async function OpenDownloadPopup() {
     setDownloadPopup(true);
+
+    <img src={"http://localhost:3001/" + "yocheved.jpeg"}></img>;
   }
 
   function startDownload() {
@@ -50,7 +53,7 @@ function Bg() {
       axios
         .post("http://localhost:3001/get_img", formData)
         .then(function (response) {
-          console.log(response);
+          setImageName(response.data);
         })
         .catch(function (error) {
           console.log(error);
@@ -106,7 +109,11 @@ function Bg() {
             </div>
 
             <div className="left_side_in">
-              {selectedTab == 1 ? <NoBg type="1" /> : <NoBg type="2" />}
+              {selectedTab == 1 ? (
+                <NoBg type="1" img={imageName} />
+              ) : (
+                <NoBg type="2" img={imageName} />
+              )}
             </div>
             <button className="btn_eula" onClick={() => setEulaPopup(true)}>
               תקנון החברה

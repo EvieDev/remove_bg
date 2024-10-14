@@ -17,23 +17,20 @@ function Download(props) {
         {props.title}
       </div>
       <div className="Download_sub_title">{props.sub_title}</div>
-
       <button
         className="Download_btn"
         onClick={() => props.open_download_popup()}
       >
         {props.btn_text}
       </button>
-
       <div className="Download_small_text">{props.small_text}</div>
-
       <img className="check" src={check} />
-
       {props.title == "Pro" ? (
         <img className="new_icon" src={new_icon} />
       ) : (
         <></>
       )}
+      ;
     </div>
   );
 }

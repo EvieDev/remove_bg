@@ -39,8 +39,8 @@
 }
 
 .main_image {
-  position: relative;
-  width: 419px;
-  left: 4px;
-  top: -13px;
+  position: absolute;
+  width: 418px;
+  left: 5px;
+  top: 100px;
 }

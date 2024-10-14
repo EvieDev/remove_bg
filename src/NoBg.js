@@ -1,7 +1,7 @@
 import "./NoBg.css";
 import warning from "./assets/warning.png";
 import { useRef } from "react";
-import img from "./assets/img.png";
+//import img from "./assets/img.png";
 
 function NoBg(props) {
   const inputElement = useRef();
@@ -32,7 +32,20 @@ function NoBg(props) {
       ) : (
         <></>
       )}
-      <img src={img} className="main_image" />
+
+      {console.log(props.img)}
+
+      {props.img != "" ? (
+        <img
+          src={
+            "http://localhost:3001/" +
+            (props.type == 1 ? "no_bg_" + props.img : props.img)
+          }
+          className="main_image"
+        />
+      ) : (
+        <></>
+      )}
     </>
   );
 }
