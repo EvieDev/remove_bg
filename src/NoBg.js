@@ -1,7 +1,6 @@
 import "./NoBg.css";
 import warning from "./assets/warning.png";
 import { useRef } from "react";
-//import img from "./assets/img.png";
 
 function NoBg(props) {
   const inputElement = useRef();

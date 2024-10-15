@@ -19,10 +19,8 @@ function Bg() {
   const [uploadErrMsg, setUploadErrMsg] = useState("");
   const [imageName, setImageName] = useState("");
 
-  async function OpenDownloadPopup() {
+  function OpenDownloadPopup() {
     setDownloadPopup(true);
-
-    <img src={"http://localhost:3001/" + "yocheved.jpeg"}></img>;
   }
 
   function startDownload() {

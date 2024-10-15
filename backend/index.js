@@ -9,8 +9,8 @@ app.use(fileUpload());
 
 app.use(cors());
 
-app.use(express.static("/noBgImage"));
-app.use(express.static("/uploadImage"));
+app.use(express.static("noBgImage"));
+app.use(express.static("uploadImage"));
 
 app.post("/get_img", async function (req, res) {
   let date = new Date().getTime();
@@ -32,10 +32,9 @@ app.post("/get_img", async function (req, res) {
         __dirname + "/noBgImage/" + "no_bg_" + fileName,
         Buffer.from(rbgResultData)
       );
+      res.send(fileName);
     }
   });
-
-  res.send(fileName);
 });
 
 async function removeBg(blob) {
