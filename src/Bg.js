@@ -9,6 +9,7 @@ import NoBg from "./NoBg";
 import DownloadFolder from "./assets/Downloads Folder.png";
 import notRobotImg from "./assets/not_robot.png";
 import axios from "axios";
+import loader from "./assets/loader.gif";
 
 function Bg() {
   const [selectedTab, setSelectedTab] = useState(1);
@@ -18,6 +19,7 @@ function Bg() {
   const [errMessage, setErrMessage] = useState("");
   const [uploadErrMsg, setUploadErrMsg] = useState("");
   const [imageName, setImageName] = useState("");
+  const [showLoader, setShowLoader] = useState(false);
 
   function OpenDownloadPopup() {
     setDownloadPopup(true);
@@ -44,6 +46,7 @@ function Bg() {
       fileUpload.type.toLowerCase() == "image/jpg" ||
       fileUpload.type.toLowerCase() == "image/jpeg"
     ) {
+      setShowLoader(true);
       let formData = new FormData();
 
       formData.append("file", fileUpload);
@@ -52,6 +55,7 @@ function Bg() {
         .post("http://localhost:3001/get_img", formData)
         .then(function (response) {
           setImageName(response.data);
+          setShowLoader(false);
         })
         .catch(function (error) {
           console.log(error);
@@ -138,6 +142,8 @@ function Bg() {
               ></Download>
             </div>
           </div>
+
+          {showLoader ? <img src={loader} className="loader"></img> : <></>}
         </div>
 
         <div className="footer">

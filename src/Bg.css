@@ -311,3 +311,11 @@
   top: 52px;
   font-size: 8px;
 }
+
+.loader {
+  position: absolute;
+  left: 198px;
+  top: 171px;
+  width: 40px;
+  height: 40px;
+}
