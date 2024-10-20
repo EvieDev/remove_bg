@@ -1,12 +1,19 @@
 import "./NoBg.css";
 import warning from "./assets/warning.png";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 
 function NoBg(props) {
   const inputElement = useRef();
 
+  const [chooseColor, setChooseColor] = useState("");
+
   const focusInput = () => {
     inputElement.current.click();
+  };
+
+  const saveColor = (color) => {
+    setChooseColor(color);
+    props.setColor(color);
   };
 
   return (
@@ -20,19 +27,22 @@ function NoBg(props) {
             </div>
           </div>
           <button className="btn_color" onClick={focusInput}>
+            <span
+              className="choose_color"
+              style={{ backgroundColor: chooseColor }}
+            ></span>
             צבע רקע
           </button>
           <input
             className="color_palate"
             type="color"
             ref={inputElement}
+            onChange={(e) => saveColor(e.target.value)}
           ></input>
         </>
       ) : (
         <></>
       )}
-
-      {console.log(props.img)}
 
       {props.img != "" ? (
         <img

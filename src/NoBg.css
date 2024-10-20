@@ -44,3 +44,13 @@
   left: 5px;
   top: 100px;
 }
+
+.choose_color {
+  height: 16px;
+  width: 28px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  border-top-left-radius: 50px;
+  border-bottom-left-radius: 50px;
+}

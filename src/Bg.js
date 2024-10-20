@@ -20,6 +20,7 @@ function Bg() {
   const [uploadErrMsg, setUploadErrMsg] = useState("");
   const [imageName, setImageName] = useState("");
   const [showLoader, setShowLoader] = useState(false);
+  const [color, setColor] = useState("");
 
   function OpenDownloadPopup() {
     setDownloadPopup(true);
@@ -50,6 +51,7 @@ function Bg() {
       let formData = new FormData();
 
       formData.append("file", fileUpload);
+      formData.append("color", color);
 
       axios
         .post("http://localhost:3001/get_img", formData)
@@ -112,9 +114,9 @@ function Bg() {
 
             <div className="left_side_in">
               {selectedTab == 1 ? (
-                <NoBg type="1" img={imageName} />
+                <NoBg type="1" img={imageName} setColor={setColor} />
               ) : (
-                <NoBg type="2" img={imageName} />
+                <NoBg type="2" img={imageName} setColor={setColor} />
               )}
             </div>
             <button className="btn_eula" onClick={() => setEulaPopup(true)}>
