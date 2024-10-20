@@ -28,8 +28,20 @@ function Bg() {
 
   function startDownload() {
     if (notRobot) {
-      //start dounload
       setErrMessage("");
+
+      fetch("http://localhost:3001/no_bg_" + imageName).then((response) => {
+        response.blob().then((blob) => {
+          let url = window.URL.createObjectURL(blob);
+          let a = document.createElement("a");
+          a.href = url;
+          a.download = imageName;
+          a.click();
+        });
+      });
+
+      setNotRobot(false);
+      setDownloadPopup(false);
     } else {
       setErrMessage("יש לסמן אני לא רובוט");
     }
@@ -38,6 +50,7 @@ function Bg() {
   const inputElement = useRef();
 
   const clickInput = () => {
+    setDownloadPopup(false);
     inputElement.current.click();
   };
 
@@ -128,6 +141,11 @@ function Bg() {
           </div>
           <div className="right_side">
             <div className="right_side_in">
+              {downloadPopup && imageName == "" ? (
+                <div className="download_popup_err">יש להעלות תמונה</div>
+              ) : (
+                <></>
+              )}
               <Download
                 open_download_popup={OpenDownloadPopup}
                 title="תמונה חינם"
@@ -169,7 +187,7 @@ function Bg() {
         <></>
       )}
 
-      {downloadPopup == true ? (
+      {downloadPopup && imageName ? (
         <div className="layout">
           <div className="download_text_popup">
             <img
@@ -198,7 +216,12 @@ function Bg() {
             </div>
 
             <div className="download_btn_cont">
-              <button className="cancel_download_btn">ביטול</button>
+              <button
+                className="cancel_download_btn"
+                onClick={() => setDownloadPopup(false)}
+              >
+                ביטול
+              </button>
               <button className="approve_download_btn" onClick={startDownload}>
                 אישור
               </button>

@@ -319,3 +319,11 @@
   width: 40px;
   height: 40px;
 }
+
+.download_popup_err {
+  color: red;
+  position: absolute;
+  font-size: 9px;
+  right: 13px;
+  top: 63px;
+}
